@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>错误页面</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">异常处理</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div th:text="统一异常处理"></div>
+			<div th:text="${ex}"></div>
+			<div th:text="${data}"></div>
+			<div th:text="${url}"></div>
+			<div th:text="${msg}"></div>
+		</div>
+	</div>
+</body>
+</html>

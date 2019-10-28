@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>测试表达式访问数据</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<p><font color="red">${param.x}将返回一个名为x的请求参数</font></p><br>
+				访问页面传递的参数：<span th:text="${param.loginname[0]}">登录名</span>&nbsp;
+				<span th:text="${param.password[0]}">密码</span>
+				<p><font color="red">${x}将返回存储在Thymeleaf上下文中的变量x或作为请求Request作用范围中的属性</font></p><br>
+				访问Request作用范围域中的变量：<span th:text="${book}">图书信息</span><br>							
+				<p><font color="red">${session.x}将返回一个名为x的会话HttpSession作用范围域中的属性</font></p><br>
+				访问Session范围域中的变量：<span th:text="${session.school}">学校</span><br>
+				<p><font color="red">${application.x}将返回一个名为x的全局ServletContext上下文作用范围域中的属性</font></p><br>
+				访问application作用范围域中的变量：<span th:text="${application.name}">动态页面模板</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

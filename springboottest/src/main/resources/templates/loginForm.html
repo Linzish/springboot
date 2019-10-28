@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+	$(function(){
+		
+	})
+</script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">第一个Spring Boot Web开发示例</h3>
+		</div>
+	</div>
+	<div class="container">		
+		<div class="row align-items-center justify-content-center login-center">
+			<div class="col-xs-6 col-md-4 col-center-block">
+				<form class="form-signin" action="login" method="post">
+					<h2 class="form-signin-heading">请登录</h2>					
+					<label for="username" class="sr-only">用户名</label>
+					<input type="text" id="loginname" class="form-control" placeholder="用户名" required autofocus name="loginname">
+					<br>
+					<label for="inputPassword" class="sr-only">密码</label>
+					<input type="password" id="inputPassword" class="form-control" placeholder="密码" required name="password">
+					<div class="toolsbox">
+						<label><input type="checkbox" value="remember-me">记住我 </label>
+						<label style="float:right"><a href="repasswordform">找回密码</a></label>
+					</div>
+					<button class="btn btn-default btn-primary btn-block" type="submit">登录</button>
+					<br>
+					<div class="row">
+						<div class="col-md-6">没有账号？</div>
+						<div class="col-md-6"><button class="btn btn-default btn-primary btn-block" type="submit" onclick="window.location.href = 'registerform'">注册</button></div>
+					</div>					
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

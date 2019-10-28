@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>使用对象方式接收上传文件</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">使用对象方式接收文件上传（注册）</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<form action="upload2" method="post" enctype="multipart/form-data" class="form">
+				<table>
+					<tr>
+						<td>文件描述：</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>请选择文件：</td>
+						<td><input type="file" name="headerPortrait" placeholder="请选择头像"></td>
+					</tr>
+					<tr>			
+						<td><input type="submit" value="上传"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

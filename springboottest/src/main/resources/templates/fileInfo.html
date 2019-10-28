@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>文件信息及下载示例</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">文件上传信息及文件下载示例</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">用户信息列表</h3>
+			</div>
+			<div class="panel-body">
+				<div class="table table-responsive">
+					<table class="table table-bordered table hover">
+						<tbody class="text-center">
+							<tr>
+								<td><img th:src="@{'upload/' + ${userHeader.name} + '.jpg'}">s</td>
+								<td th:text="${userHeader.name}">用户名</td>
+								<td><a th:href="@{download(filename=${userHeader.name})}">下载头像</a></td>
+							</tr>
+						</tbody>				
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

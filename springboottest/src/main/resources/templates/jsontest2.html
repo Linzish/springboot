@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>测试处理json数据2</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		findbooks();
+	});
+	function findbooks(){
+		$.ajax({
+			url : "findbooks",
+			type : "post",
+			contentType : "application/json",
+			dataType : "json",
+			success : function(data){
+				$.each(data, function(){
+					var tr = $("<tr align='center'/>");
+					$("<img/>").attr("src", "img/" + this.image).attr("height", 60).appendTo("<td/>").appendTo(tr);
+					$("<td/>").html(this.title).appendTo(tr);
+					$("<td/>").html(this.author).appendTo(tr);
+					$('#booktable').append(tr);
+				});
+			}, 
+			error : function(e){
+				alert("数据发送失败");
+				console.log(e);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Spring Boot 中集合转换JSON</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">图书信息列表</h3>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="table table-responsive">
+					<table class="table table-border table-hover" id="booktable">
+						<thead>
+							<tr>
+								<th class="text-center">封面</th>
+								<th class="text-center">书名</th>
+								<th class="text-center">作者</th>	
+							</tr>													
+						</thead>
+						<tbody class="text-center">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

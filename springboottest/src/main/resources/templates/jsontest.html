@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>测试处理json数据</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		findbook();
+	});
+	function findbook(){
+		$.ajax({
+			url : "findbook",
+			type : "post",
+			contentType : "application/json",
+			dataType : "json",
+			data : JSON.stringify({id : 1, title : "Spring MVC 企业应用实战"}),
+			success : function(data){
+				console.log(data);
+				$('#img').attr("src", "img/" + data.image + "");
+				$('#title').html(data.title);
+				$('#author').html(data.author);
+				$('#price').html(data.price);
+				$('#remark').html(data.remark);
+			},
+			error : function(e){
+				alert("数据发送失败");
+				console.log(e);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">图书信息列表</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>封面：<img alt="" src="img/java.jpg" id="img"></p>
+				<p>书名：<span id="title"></span></p>
+				<p>作者：<span id="author"></span></p>
+				<p>价格：<span id="price"></span></p>
+				<p>简介：<span id="remark"></span></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

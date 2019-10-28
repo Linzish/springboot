@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Boot Test1</title>
+</head>
+<body>
+<a href="loginForm">第一个Spring Boot的Web应用</a><br>
+<a th:href="@{regexptest?loginname=a614&password=123456}">测试表达式访问数据</a><br>
+<a th:href="@{iftest}">测试条件判断</a><br>
+<a th:href="@{eachtest}">测试循环</a><br>
+<a th:href="@{jsontest}">处理json数据</a><br>
+<a th:href="@{jsontest2}">处理json数据2</a><br>
+<a th:href="@{uploadForm}">Spring Boot 文件上传</a><br>
+<a th:href="@{uploadForm2}">使用对象方式接收上传文件</a><br>
+</body>
+</html>

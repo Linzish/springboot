@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>测试条件判断</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jQuery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<p><font color="red">th:if中条件成立时才显示出来</font></p><br>
+				<span th:if="${username != null}">username不为空</span><br>
+				<span th:if="${age != null}">age不为空</span><br>
+				<p><font color="red">th:unless与th:if恰好相反，只有表达式中条件不成立时才显示出来</font></p><br>
+				<span th:unless="${address != null}">address为空</span><br>
+				<p><font color="red">支持多路选择Switch结构，默认属性default可以用*表示</font></p><br>
+				<div th:switch="${role}">
+					<p th:case="'admin'">管理员</p>
+					<p th:case="'guest'">来宾</p>
+					<p th:case="*">其他</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
